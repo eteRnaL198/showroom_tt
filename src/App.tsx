@@ -1,13 +1,23 @@
 import React from 'react';
-import { Header, InputTime, InputText, Table } from "./component/index";
+import { useState } from 'react';
+import { Header, InputTime, InputText, Table, EditButton } from "./component/index";
+
+interface Time {
+  start: string
+  end: string
+}
 
 function App() {
+  const [times, setTimes] = useState([] as Time[]);
+  const [canEdit, setCanEdit] = useState(true);
+
   return (
     <div>
       <Header />
-      <InputText />
-      <InputTime />
-      <Table />
+      <InputText canEdit={canEdit}/>
+      <InputTime canEdit={canEdit} times={times} setTimes={setTimes}/>
+      <Table canEdit={canEdit} times={times}/>
+      <EditButton canEdit={canEdit} setCanEdit={setCanEdit}/>
     </div>
   );
 }
