@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header, InputTime, InputText } from "./component/index";
+import { Header, InputTime, InputText, Table } from "./component/index";
 
 function App() {
   return (
@@ -7,6 +7,7 @@ function App() {
       <Header />
       <InputText />
       <InputTime />
+      <Table />
     </div>
   );
 }
