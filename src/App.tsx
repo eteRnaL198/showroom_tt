@@ -1,11 +1,12 @@
 import React from 'react';
-import { Header, Input } from "./component/index";
+import { Header, InputTime, InputText } from "./component/index";
 
 function App() {
   return (
     <div>
       <Header />
-      <Input />
+      <InputText />
+      <InputTime />
     </div>
   );
 }
