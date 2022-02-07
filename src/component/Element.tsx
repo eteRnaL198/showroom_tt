@@ -1,3 +1,4 @@
+import { Dispatch, SetStateAction } from "react";
 import { calculate } from "../utility/index";
 
 interface Time {
@@ -7,10 +8,20 @@ interface Time {
 
 interface Props {
   canEdit: boolean;
-  time: Time;
+  key: number;
+  setTimes: Dispatch<SetStateAction<Time[]>>;
+  times: Time[];
 }
 
-const Element = ({canEdit, time}: Props) => {
+const Element = ({canEdit, key, setTimes, times}: Props) => {
+  const time = times[key];
+  
+  const handleClick = () => {
+    const newTimes = [...times];
+    newTimes.splice(key, 1);
+    setTimes(newTimes);
+  }
+
   return (
     (canEdit) ?
       <div className="bg-gray-200 contents">
@@ -19,6 +30,7 @@ const Element = ({canEdit, time}: Props) => {
         <p>{time.end}</p>
         <button
           className="bg-red-400 rounded-2xl text-white"
+          onClick={() => handleClick()}
         >
           削除
         </button>

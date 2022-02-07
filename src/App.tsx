@@ -16,7 +16,7 @@ function App() {
       <Header />
       <InputText canEdit={canEdit}/>
       <InputTime canEdit={canEdit} times={times} setTimes={setTimes}/>
-      <Table canEdit={canEdit} times={times}/>
+      <Table canEdit={canEdit} times={times} setTimes={setTimes}/>
       <EditButton canEdit={canEdit} setCanEdit={setCanEdit}/>
     </div>
   );

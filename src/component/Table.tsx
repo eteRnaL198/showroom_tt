@@ -1,3 +1,4 @@
+import { Dispatch, SetStateAction } from "react";
 import { Element } from "./index";
 
 interface Time {
@@ -8,11 +9,13 @@ interface Time {
 interface Props {
   canEdit: boolean;
   times: Time[];
+  setTimes: Dispatch<SetStateAction<Time[]>>;
 }
 
-const Table = ({canEdit, times}: Props) => {
+const Table = ({canEdit, times, setTimes}: Props) => {
   return (
-    (canEdit) ?
+    <>
+    {(canEdit) ?
       <div className="border-2 border-gray-400 gap-3 grid grid-cols-4 mx-auto p-3 rounded-lg text-center w-11/12">
         <div className="contents font-bold">
           <p>配信</p>
@@ -20,9 +23,6 @@ const Table = ({canEdit, times}: Props) => {
           <p>捨て星</p>
           <p></p>
         </div>
-        {times.map((time, idx) => (
-          <Element canEdit={canEdit} key={idx} time={time}/>
-        ))}
       </div>
     :
       <div className="border-2 border-gray-400 gap-3 grid grid-cols-3 mx-auto p-3 rounded-lg text-center w-11/12">
@@ -31,10 +31,12 @@ const Table = ({canEdit, times}: Props) => {
           <p>星集め</p>
           <p>捨て星</p>
         </div>
-        {times.map((time, idx) => (
-          <Element canEdit={canEdit} key={idx} time={time}/>
-        ))}
       </div>
+    }
+      {times.map((time, idx) => (
+        <Element canEdit={canEdit} key={idx} times={times} setTimes={setTimes}/>
+      ))}
+    </>
   )
 }
 
