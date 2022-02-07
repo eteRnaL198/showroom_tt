@@ -1,4 +1,4 @@
-import { calculateStarTime } from "../utility/index";
+import { calculateStarTime, calculateNextStreamingTime } from "../utility/index";
 
 (() => {
   console.log("25分枠");
@@ -43,3 +43,15 @@ import { calculateStarTime } from "../utility/index";
     console.log(`Fail collectTime: ${collectTime}, discardTime: ${discardTime}`);
   }
 })();
+
+(() => {
+  console.log("次の配信時間");
+  const [nextStartTime, nextEndTime] = calculateNextStreamingTime("10:00", "10:30");
+  const result = (nextStartTime === "13:15" && nextEndTime === "13:45");
+  if (result) {
+    console.log("Pass");
+  } else {
+    console.log(`Fail nextStartTime: ${nextStartTime}, nextEndTime: ${nextEndTime}`);
+  }
+})();
+
