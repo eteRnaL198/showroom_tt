@@ -13,6 +13,10 @@ interface Props {
 }
 
 const Table = ({canEdit, times, setTimes}: Props) => {
+  const elems = times.map((time, idx) => (
+    <Element canEdit={canEdit} id={idx} key={idx} times={times} setTimes={setTimes}/>
+  ))
+
   return (
     <>
     {(canEdit) ?
@@ -23,6 +27,7 @@ const Table = ({canEdit, times, setTimes}: Props) => {
           <p>捨て星</p>
           <p></p>
         </div>
+        {elems}
       </div>
     :
       <div className="border-2 border-gray-400 gap-3 grid grid-cols-3 mx-auto p-3 rounded-lg text-center w-11/12">
@@ -31,11 +36,9 @@ const Table = ({canEdit, times, setTimes}: Props) => {
           <p>星集め</p>
           <p>捨て星</p>
         </div>
+        {elems}
       </div>
     }
-      {times.map((time, idx) => (
-        <Element canEdit={canEdit} key={idx} times={times} setTimes={setTimes}/>
-      ))}
     </>
   )
 }
