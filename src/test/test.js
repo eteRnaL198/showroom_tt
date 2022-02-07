@@ -32,3 +32,14 @@ var index_1 = require("../utility/index");
         console.log("Fail collectTime: " + collectTime + ", discardTime: " + discardTime);
     }
 })();
+(function () {
+    console.log("不正な時間");
+    var _a = index_1.calculate("23:00", "23:00"), collectTime = _a[0], discardTime = _a[1];
+    var result = (discardTime === "23:00");
+    if (result) {
+        console.log("Pass");
+    }
+    else {
+        console.log("Fail collectTime: " + collectTime + ", discardTime: " + discardTime);
+    }
+})();
