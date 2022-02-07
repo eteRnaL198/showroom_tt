@@ -1,7 +1,9 @@
 const toTime = (num: number): string => {
-  const hour = (num / 60 | 0).toString();
-  const min = (num % 60).toString();
-  return (min.length === 2) ? `${hour}:${min}` : `${hour}:0${min}`;
+  const hourNum = (num / 60 | 0);
+  const minNum = (num % 60);
+  const hourString = (hourNum >= 10) ? hourNum.toString() : `0${hourNum.toString()}`;
+  const minString = (minNum >= 10) ? minNum.toString() : `0${minNum.toString()}`;
+  return `${hourString}:${minString}`;
 }
 
 export default toTime;
