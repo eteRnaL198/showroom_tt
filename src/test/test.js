@@ -41,9 +41,9 @@ var failCnt = 0;
     }
 })();
 (function () {
-    console.log("不正な時間");
-    var _a = index_1.calculateStarTime("23:00", "23:00"), collectTime = _a[0], discardTime = _a[1];
-    var result = (collectTime.length === 7);
+    console.log("配信時間 10分以下で不正とする");
+    var _a = index_1.calculateStarTime("23:00", "23:10"), collectTime = _a[0], discardTime = _a[1];
+    var result = (collectTime.length === 5 && collectTime.length === 5);
     if (result) {
         passCnt++;
         console.log("Pass");

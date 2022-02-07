@@ -43,9 +43,9 @@ let failCnt = 0;
 })();
 
 (() => {
-  console.log("不正な時間");
-  const [collectTime, discardTime] = calculateStarTime("23:00", "23:00");
-  const result = (collectTime.length !== 5 && collectTime.length !== 5);
+  console.log("配信時間 10分以下で不正とする");
+  const [collectTime, discardTime] = calculateStarTime("23:00", "23:10");
+  const result = (collectTime.length === 5 && collectTime.length === 5);
   if (result) {
     passCnt++;
     console.log("Pass");
