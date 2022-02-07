@@ -20,7 +20,7 @@ const InputTime = ({canEdit, times, setTimes}: Props) => {
 
   const handleClick = () => {
     const [collectTime, discardTime] = calculateStarTime(startTime, endTime);
-    const isCorrectInput = (collectTime.length === 5); // 正常な場合 00:00
+    const isCorrectInput = (collectTime.length === 5 && discardTime.length === 5); // 正常な場合 00:00
     if (isCorrectInput) {
       setTimes([...times, {
         collect: collectTime, discard: discardTime, end: endTime, start: startTime
