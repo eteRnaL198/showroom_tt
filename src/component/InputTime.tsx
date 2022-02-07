@@ -1,8 +1,11 @@
 import { useState, Dispatch, SetStateAction } from 'react';
+import { calculateStarTime, calculateNextStreamingTime } from "../utility/index";
 
 interface Time {
-  start: string
+  collect: string
+  discard: string
   end: string
+  start: string
 }
 
 interface Props {
@@ -16,7 +19,18 @@ const InputTime = ({canEdit, times, setTimes}: Props) => {
   const [endTime, setEndTime] = useState('00:00');
 
   const handleClick = () => {
-    setTimes([...times, {start: startTime, end: endTime}]);
+    const [collectTime, discardTime] = calculateStarTime(startTime, endTime);
+    const min = parseInt(collectTime.split(':')[1]);
+    if (min > -1) {
+      setTimes([...times, {
+        collect: collectTime, discard: discardTime, end: endTime, start: startTime
+      }]);
+      const nextTime = calculateNextStreamingTime();
+      setStartTime('00:00');
+      setEndTime('00:00');
+    } else {
+      window.alert("時刻を正しく入力してください");
+    }
   }
 
   return (

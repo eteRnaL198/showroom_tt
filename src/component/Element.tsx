@@ -1,9 +1,10 @@
 import { Dispatch, SetStateAction } from "react";
-import { calculate } from "../utility/index";
 
 interface Time {
-  start: string;
+  collect: string;
+  discard: string;
   end: string;
+  start: string;
 }
 
 interface Props {
@@ -15,11 +16,10 @@ interface Props {
 
 const Element = ({canEdit, id, setTimes, times}: Props) => {
   const time = times[id];
-  const [collectTime, discardTime] = calculate(time.start, time.end);
   const elem = <>
     <p>{time.start}-{time.end}</p>
-    <p>{collectTime}</p>
-    <p>{discardTime}</p>
+    <p>{time.collect}</p>
+    <p>{time.discard}</p>
   </>
 
   const handleClick = () => {

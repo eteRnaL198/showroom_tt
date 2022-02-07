@@ -1,10 +1,11 @@
-import React from 'react';
 import { useState } from 'react';
 import { Header, InputTime, InputText, Table, EditButton } from "./component/index";
 
 interface Time {
-  start: string
+  collect: string
+  discard: string
   end: string
+  start: string
 }
 
 function App() {

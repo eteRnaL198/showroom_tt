@@ -2,8 +2,10 @@ import { Dispatch, SetStateAction } from "react";
 import { Element } from "./index";
 
 interface Time {
-  start: string
+  collect: string
+  discard: string
   end: string
+  start: string
 }
 
 interface Props {
