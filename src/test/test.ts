@@ -45,7 +45,7 @@ let failCnt = 0;
 (() => {
   console.log("不正な時間");
   const [collectTime, discardTime] = calculateStarTime("23:00", "23:00");
-  const result = (collectTime.length === 7)
+  const result = (collectTime.length !== 5 && collectTime.length !== 5);
   if (result) {
     passCnt++;
     console.log("Pass");
@@ -92,6 +92,19 @@ let failCnt = 0;
   } else {
     failCnt++;
     console.log(`toTime${toTime(timeNum)}`);
+  }
+})();
+
+(() => {
+  console.log("深夜帯");
+  const [collectTime, discardTime] = calculateStarTime("00:10", "00:30");
+  const result = (collectTime === "22:20" && discardTime === "23:20");
+  if (result) {
+    passCnt++;
+    console.log("Pass");
+  } else {
+    failCnt++;
+    console.log(`Fail collectTime: ${collectTime}, discardTime: ${discardTime}`);
   }
 })();
 

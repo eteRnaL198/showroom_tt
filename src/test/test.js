@@ -94,5 +94,18 @@ var failCnt = 0;
     }
 })();
 (function () {
+    console.log("深夜帯");
+    var _a = index_1.calculateStarTime("00:10", "00:30"), collectTime = _a[0], discardTime = _a[1];
+    var result = (collectTime === "22:20" && discardTime === "23:20");
+    if (result) {
+        passCnt++;
+        console.log("Pass");
+    }
+    else {
+        failCnt++;
+        console.log("Fail collectTime: " + collectTime + ", discardTime: " + discardTime);
+    }
+})();
+(function () {
     console.log("Pass: " + passCnt + ", Fail: " + failCnt);
 })();
