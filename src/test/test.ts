@@ -1,4 +1,4 @@
-import { calculateStarTime, calculateNextStreamingTime } from "../utility/index";
+import { calculateStarTime, calculateNextStreamingTime, parseTime, toTime } from "../utility/index";
 
 let passCnt = 0;
 let failCnt = 0;
@@ -78,6 +78,20 @@ let failCnt = 0;
   } else {
     failCnt++;
     console.log(`Fail nextStartTime: ${nextStartTime}, nextEndTime: ${nextEndTime}`);
+  }
+})();
+
+(() => {
+  console.log("12時間表記");
+  const time24 = "27:00"
+  const timeNum = parseTime(time24);
+  const result = (toTime(timeNum) === "03:00");
+  if (result) {
+    passCnt++;
+    console.log("Pass");
+  } else {
+    failCnt++;
+    console.log(`toTime${toTime(timeNum)}`);
   }
 })();
 

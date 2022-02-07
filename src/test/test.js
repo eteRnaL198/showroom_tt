@@ -67,7 +67,7 @@ var failCnt = 0;
     }
 })();
 (function () {
-    console.log("分表示 二桁");
+    console.log("時間表示 二桁");
     var _a = index_1.calculateNextStreamingTime("04:52", "5:00"), nextStartTime = _a[0], nextEndTime = _a[1];
     var result = (nextStartTime === "08:02" && nextEndTime === "08:10");
     if (result) {
@@ -77,6 +77,20 @@ var failCnt = 0;
     else {
         failCnt++;
         console.log("Fail nextStartTime: " + nextStartTime + ", nextEndTime: " + nextEndTime);
+    }
+})();
+(function () {
+    console.log("12時間表記");
+    var time24 = "27:00";
+    var timeNum = index_1.parseTime(time24);
+    var result = (index_1.toTime(timeNum) === "03:00");
+    if (result) {
+        passCnt++;
+        console.log("Pass");
+    }
+    else {
+        failCnt++;
+        console.log("toTime" + index_1.toTime(timeNum));
     }
 })();
 (function () {
