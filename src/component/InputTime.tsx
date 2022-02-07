@@ -25,9 +25,9 @@ const InputTime = ({canEdit, times, setTimes}: Props) => {
       setTimes([...times, {
         collect: collectTime, discard: discardTime, end: endTime, start: startTime
       }]);
-      const nextTime = calculateNextStreamingTime();
-      setStartTime('00:00');
-      setEndTime('00:00');
+      const [nextStartTime, nextEndTime] = calculateNextStreamingTime(startTime, endTime);
+      setStartTime(nextStartTime);
+      setEndTime(nextEndTime);
     } else {
       window.alert("時刻を正しく入力してください");
     }
