@@ -13,14 +13,14 @@ const InputText = ({canEdit}: Props) => {
       {(canEdit) ? 
         <textarea
           placeholder="メッセージを入力"
-          className="border-2 border-gray-400 h-72 p-3 rounded-lg w-11/12"
+          className="border-2 border-gray-400 h-60 p-3 rounded-lg w-11/12"
           value={message}
           onChange={e => setMessage(e.target.value)}
         />
         :
         <textarea
           placeholder="メッセージを入力"
-          className="h-80 p-3 rounded-lg w-11/12 focus:outline-none"
+          className="h-60 p-3 rounded-lg w-11/12 focus:outline-none"
           value={message}
           readOnly
         />

@@ -19,7 +19,7 @@ const EditButton = ({canEdit, setCanEdit}: Props) => {
     :
       <button
         onClick={() => setCanEdit(true)}
-        className="right-8 bottom-8 fixed  text-4xl text-gray-400"
+        className="right-3 bottom-3 fixed  text-2xl text-gray-400"
       >
         <FontAwesomeIcon icon={faEdit} />
       </button>
