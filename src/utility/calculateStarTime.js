@@ -9,7 +9,7 @@ var calculateStarTime = function (start, end) {
             var tmp = startNum + 15 - 60;
             return (tmp >= 0) ? tmp : tmp + 24 * 60;
         }
-        else if (interval > 0) {
+        else if (interval > 10) {
             // それ以下の枠は配信開始10分後に制限解除
             var tmp = startNum + 10 - 60;
             return (tmp >= 0) ? tmp : tmp + 24 * 60;
