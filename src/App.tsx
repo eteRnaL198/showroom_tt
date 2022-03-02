@@ -1,5 +1,6 @@
+import React from 'react'
 import { useState } from 'react';
-import { Header, InputTime, InputText, Table, EditButton } from "./component/index";
+import { Header, InputTime, InputText, Table, ToggleDisplayButton } from "./component/index";
 
 interface Time {
   collect: string
@@ -18,7 +19,7 @@ function App() {
       <InputText canEdit={canEdit}/>
       <InputTime canEdit={canEdit} times={times} setTimes={setTimes}/>
       <Table canEdit={canEdit} times={times} setTimes={setTimes}/>
-      <EditButton canEdit={canEdit} setCanEdit={setCanEdit}/>
+      <ToggleDisplayButton canEdit={canEdit} setCanEdit={setCanEdit}/>
     </div>
   );
 }

@@ -7,12 +7,12 @@ const calculateStarTime = (start: string, end: string): string[] => {
     const interval = (endNum >= startNum) ? endNum - startNum : endNum + 24*60 - startNum;
     if (interval >= 25) {
       // 25分以上の枠は配信開始15分後に制限解除
-      const tmp = startNum + 15 - 60;
-      return (tmp >= 0) ? tmp : tmp + 24*60;
+      const longInterval = startNum + 15 - 60;
+      return (longInterval >= 0) ? longInterval : longInterval + 24*60;
     } else if (interval > 10) {
       // それ以下の枠は配信開始10分後に制限解除
-      const tmp =  startNum + 10 - 60; 
-      return (tmp >= 0) ? tmp: tmp + 24*60;
+      const shortInterval =  startNum + 10 - 60; 
+      return (shortInterval >= 0) ? shortInterval: shortInterval + 24*60;
     } else {
       return -1;
     }

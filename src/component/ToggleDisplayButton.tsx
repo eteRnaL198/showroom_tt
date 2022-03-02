@@ -1,3 +1,4 @@
+import React from 'react'
 import { Dispatch, SetStateAction } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
@@ -7,7 +8,7 @@ interface Props {
   setCanEdit: Dispatch<SetStateAction<boolean>>
 }
 
-const EditButton = ({canEdit, setCanEdit}: Props) => {
+const ToggleDisplayButton = ({canEdit, setCanEdit}: Props) => {
   return (
     (canEdit) ?
       <button
@@ -26,4 +27,4 @@ const EditButton = ({canEdit, setCanEdit}: Props) => {
   )
 }
 
-export default EditButton;
+export default ToggleDisplayButton;

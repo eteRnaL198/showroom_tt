@@ -1,3 +1,4 @@
+import React from 'react'
 import { useState, Dispatch, SetStateAction } from 'react';
 import { calculateStarTime, calculateNextStreamingTime } from "../utility/index";
 
@@ -20,7 +21,7 @@ const InputTime = ({canEdit, times, setTimes}: Props) => {
 
   const handleClick = () => {
     const [collectTime, discardTime] = calculateStarTime(startTime, endTime);
-    const isCorrectInput = (collectTime.length === 5 && discardTime.length === 5); // 正常な場合 00:00
+    const isCorrectInput = (collectTime.length === 5 && discardTime.length === 5); // 正常な場合 11:11
     if (isCorrectInput) {
       setTimes([...times, {
         collect: collectTime, discard: discardTime, end: endTime, start: startTime
