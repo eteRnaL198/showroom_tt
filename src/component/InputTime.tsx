@@ -25,7 +25,7 @@ const InputTime = ({canEdit, times, setTimes}: Props) => {
     if (isCorrectInput) {
       setTimes([...times, {
         collect: collectTime, discard: discardTime, end: endTime, start: startTime
-      }]);
+      }].sort((a, b) => parseInt(a.start) - parseInt(b.start)));
       const [nextStartTime, nextEndTime] = calculateNextStreamingTime(startTime, endTime);
       setStartTime(nextStartTime);
       setEndTime(nextEndTime);
