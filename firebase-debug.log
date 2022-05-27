@@ -1,0 +1,28 @@
+[debug] [2022-05-27T06:03:04.837Z] ----------------------------------------------------------------------
+[debug] [2022-05-27T06:03:04.839Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy --only hosting
+[debug] [2022-05-27T06:03:04.839Z] CLI Version:   10.2.2
+[debug] [2022-05-27T06:03:04.840Z] Platform:      linux
+[debug] [2022-05-27T06:03:04.840Z] Node Version:  v16.14.0
+[debug] [2022-05-27T06:03:04.840Z] Time:          Fri May 27 2022 15:03:04 GMT+0900 (Japan Standard Time)
+[debug] [2022-05-27T06:03:04.841Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-05-27T06:03:04.895Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-05-27T06:03:04.895Z] > authorizing via signed-in user (ikuya313198@gmail.com)
+[debug] [2022-05-27T06:03:04.895Z] [iam] checking project showroom-timetable for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2022-05-27T06:03:04.897Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/showroom-timetable:testIamPermissions [none]
+[debug] [2022-05-27T06:03:04.897Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/showroom-timetable:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-05-27T06:05:17.249Z] [iam] error while checking permissions, command may fail: FirebaseError: Failed to make request to https://cloudresourcemanager.googleapis.com/v1/projects/showroom-timetable:testIamPermissions
+[debug] [2022-05-27T06:05:17.258Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/showroom-timetable [none]
+[debug] [2022-05-27T06:05:17.702Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/showroom-timetable 200
+[debug] [2022-05-27T06:05:17.703Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/showroom-timetable {"projectId":"showroom-timetable","projectNumber":"481684736446","displayName":"showroom-timetable","name":"projects/showroom-timetable","resources":{"hostingSite":"showroom-timetable","storageBucket":"showroom-timetable.appspot.com","locationId":"asia-northeast1"},"state":"ACTIVE"}
+[info] 
+[info] === Deploying to 'showroom-timetable'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2022-05-27T06:05:17.711Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/showroom-timetable [none]
+[debug] [2022-05-27T06:05:47.715Z] Timeout reached making request to https://firebase.googleapis.com/v1beta1/projects/showroom-timetable
+[debug] [2022-05-27T06:05:47.865Z] FirebaseError: Timeout reached making request to https://firebase.googleapis.com/v1beta1/projects/showroom-timetable
+    at RetryOperation._fn (/usr/local/lib/node_modules/firebase-tools/lib/apiv2.js:236:35)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[error] 
+[error] Error: Failed to get Firebase project showroom-timetable. Please make sure the project exists and your account has permission to access it.
